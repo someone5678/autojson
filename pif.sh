@@ -27,7 +27,7 @@ url="https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/rss?path=/xi
 tmp_dir="$(mktemp -d)"
 apk_file="${tmp_dir}/xiaomi.apk"
 extracted_apk="${tmp_dir}/Extractedapk"
-service_file="pif.json"
+service_file="pif_public.json"
 fields_file="${extracted_apk}/res/xml/inject_fields.xml"
 
 trap 'rm -rf "${tmp_dir}"' EXIT
@@ -49,4 +49,4 @@ chmod +x migrate.sh
 
 ./migrate.sh -i "${service_file}" edited.json
 
-mv edited.json pif.json
+mv edited.json pif_public.json
