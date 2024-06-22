@@ -105,8 +105,8 @@ if [ -z "$SECURITY_PATCH" -o "$SECURITY_PATCH" = "null" ]; then
 fi;
 
 if [ -z "$DEVICE_INITIAL_SDK_INT" -o "$DEVICE_INITIAL_SDK_INT" = "null" ]; then
-  item 'Missing required DEVICE_INITIAL_SDK_INT field and "*api_level" property value found, setting to 25 ...';
-  DEVICE_INITIAL_SDK_INT=25;
+  item 'Missing required DEVICE_INITIAL_SDK_INT field and "*api_level" property value found, setting to 24 ...';
+  DEVICE_INITIAL_SDK_INT=24;
 fi;
 
 if [ -f "$OUT" ]; then
@@ -121,10 +121,6 @@ fi;
 for FIELD in $ALLFIELDS; do
   eval echo '\ \ \ \ \"$FIELD\": \"'\$$FIELD'\",';
 done;
-echo '    "*.build.id": "'$ID'",';
-echo '    "*.security_patch": "'$SECURITY_PATCH'",';
-[ -z "$VNDK_VERSION" ] || echo '    "*.vndk.version": "'$VNDK_VERSION'",';
-echo '    "*api_level": "'$DEVICE_INITIAL_SDK_INT'",';
 if [ "$ADVANCED" ]; then
   echo '    "verboseLogs": "0",';
 fi) | sed '$s/,/\n}/' > "$OUT";
