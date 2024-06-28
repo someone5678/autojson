@@ -16,6 +16,8 @@ create_json() {
   "MODEL": "$(get_value MODEL)",
   "FINGERPRINT": "$(get_value FINGERPRINT)",
   "SECURITY_PATCH": "$(get_value SECURITY_PATCH)",
+  "BOARD": "$(get_value BOARD)",
+  "HARDWARE": "$(get_value HARDWARE)",
   "FIRST_API_LEVEL": "$(get_value FIRST_API_LEVEL)"
 }
 EOF
